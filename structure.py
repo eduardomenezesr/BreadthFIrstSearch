@@ -6,9 +6,12 @@ class Edge:
         self.to = to
         self.weight = weight
 
+    def getTo(self):
+        return self.to
+
 
 class Vertex:
-    def __init__(self, name, h=1):
+    def __init__(self, name=None, h=1):
         self.name = name
         self.h = h
         self.edges = []
@@ -22,6 +25,15 @@ class Vertex:
 
     def setH(self, h):
         self.h = h
+
+    def getEdges(self):
+        return self.edges
+
+    def getName(self):
+        return self.name
+
+    def setName(self, name):
+        self.name = name
 
 
 class Graph:
