@@ -25,10 +25,10 @@ class Vertex:
 
 
 class Graph:
-    def __init__(self, name):
+    def __init__(self, name, start=None, goal=None):
         self.name = name
-        self.start = None
-        self.goal = None
+        self.start = start
+        self.goal = goal
         self.vertexes = []
 
     def appendVertex(self, vertex):
@@ -57,6 +57,7 @@ class Graph:
                     v = Vertex(state)
                     e = Edge(next_state, weight)
                     v.appendEdge(e)
+                    current_state = state
                 elif(state == current_state):
                     e = Edge(next_state, weight)
                     v.appendEdge(e)
