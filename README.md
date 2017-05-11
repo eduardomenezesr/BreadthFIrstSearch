@@ -1,2 +1,2 @@
-# BreadthFIrstSearch
-Breadth First Search implemented in python
+Breadth First Search implementation in python
+A* implementation in python
