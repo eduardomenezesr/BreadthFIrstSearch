@@ -9,6 +9,9 @@ class Edge:
     def getTo(self):
         return self.to
 
+    def getWeight(self):
+        return self.weight
+
 
 class Vertex:
     def __init__(self, name=None, h=1):
@@ -16,12 +19,13 @@ class Vertex:
         self.h = h
         self.edges = []
         self.visited = False
+        self.cumulative_weight = 0
 
     def setVisited(self, value):
         self.visited = value
 
-    def appendEdge(self, edge):
-        self.edges.append(edge)
+    def getH(self):
+        return self.h
 
     def setH(self, h):
         self.h = h
@@ -29,11 +33,20 @@ class Vertex:
     def getEdges(self):
         return self.edges
 
+    def appendEdge(self, edge):
+        self.edges.append(edge)
+
     def getName(self):
         return self.name
 
     def setName(self, name):
         self.name = name
+
+    def getCumulativeWeight(self):
+        return self.cumulative_weight
+
+    def setCumulativeWeight(self, cumulative_weight):
+        self.cumulative_weight = cumulative_weight
 
 
 class Graph:

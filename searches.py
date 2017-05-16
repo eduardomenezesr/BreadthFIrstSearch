@@ -64,3 +64,81 @@ def BreadthFirstSearch(file_name):
         print('Goal not found!')
     else:
         print('Goal reached:', v.getName())
+
+
+def A_star(file_name):
+    file_object = open(file_name, 'r')
+    start = None
+    goal = None
+    frontier = []
+    finished = False
+    v = graph.Vertex()
+    e = None
+    complete_path = []
+
+    print('Starting A* Search')
+
+    for line in file_object:
+        if (line.startswith('ini')):
+            start = line.split('(')[1].split(')')[0].strip()
+            v.setName(start)
+            frontier.append(v)
+        elif (line.startswith('fin')):
+            goal = line.split('(')[1].split(')')[0].strip()
+            break
+
+    print('Starting state:', start)
+    print('Goal:', goal)
+
+    if start == goal:
+        finished = True
+
+    while(frontier and not finished):
+
+        file_object.seek(0, 0)
+        for line in file_object:
+            if (line.startswith('cam')):
+                path = line.split('(')[1].split(')')[0].split(',')
+                state = path[0].strip()
+                next_state = path[1].strip()
+                weight = path[2].strip()
+                if(state == frontier[0].getName()):
+                    e = graph.Edge(next_state, int(weight))
+                    v.appendEdge(e)
+
+        complete_path.append(frontier[0].getName())
+        frontier.pop(0)
+
+        if v.getEdges():
+            edges = sorted(v.getEdges(), key=lambda edge: edge.weight)
+            for edge in edges:
+                v_aux = graph.Vertex(edge.getTo())
+                file_object.seek(0, 0)
+                for line in file_object:
+                    if (line.startswith('h')):
+                        heuristic = line.split('(')[1].split(')')[0].split(',')
+                        origin = heuristic[0].strip()
+                        goal = heuristic[1].strip()
+                        h = heuristic[2].strip()
+                        if v_aux.getName() == origin:
+                            v_aux.setH(int(h))
+                            break
+                v_aux.setCumulativeWeight(edge.getWeight()
+                                          + v.getCumulativeWeight())
+                frontier.append(v_aux)
+
+            frontier = sorted(frontier,
+                              key=lambda v: v.getCumulativeWeight() + v.getH())
+
+        if frontier:
+            v = frontier[0]
+
+        if v.getName() == goal:
+            finished = True
+
+    file_object.close()
+    print(complete_path)
+    if not finished:
+        print('Goal not found!')
+    else:
+        print('Goal reached:', v.getName())
