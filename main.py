@@ -1,6 +1,7 @@
 import searches
 
 
+# Main menu where the user can choose between BreadthFirstSearch, A* and exit the program
 def main():
     choice = None
     choice = input('Select your option: 1-BreadthFirstSearch; 2-A*; c-exit: ')

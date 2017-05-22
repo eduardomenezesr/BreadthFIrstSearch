@@ -1,6 +1,8 @@
 # Graph Structure and Parser
 
 
+# The edge structure stores to where this edge is going and the weight of this
+# path, as well some methods to get this values
 class Edge:
     def __init__(self, to, weight=1):
         self.to = to
@@ -13,6 +15,9 @@ class Edge:
         return self.weight
 
 
+# The vertex structure stores the name, heuristic, a list of edges, a variable
+# that marks if the vertex was visited and the cumulative_weight, as well some
+# methods to set and get these values
 class Vertex:
     def __init__(self, name=None, h=1):
         self.name = name
@@ -49,6 +54,8 @@ class Vertex:
         self.cumulative_weight = cumulative_weight
 
 
+# This structure is not important because we never used it, we were supposed
+# to keep just the frontier on memory and not the entire graph
 class Graph:
     def __init__(self, name, start=None, goal=None):
         self.name = name
