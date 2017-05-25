@@ -1,0 +1,35 @@
+inicial(Arad).
+final(Bucharesti).
+caminho(Arad, Zerind, 75).
+caminho(Zerind, Arad, 75).
+caminho(Arad, Sibiu, 140).
+caminho(Sibiu, Arad, 140).
+caminho(Arad, Timisoara, 118).
+caminho(Timisoara, Arad, 118).
+caminho(Zerind, Oradea, 71).
+caminho(Oradea, Sibiu, 151).
+caminho(Sibiu, Fagaras, 99).
+caminho(Sibiu, Rimnicu Vilcea, 80).
+caminho(Sibiu, Oradea, 151).
+caminho(Timisoara, Lugoj, 111).
+caminho(Lugoj, Mehadia, 70).
+caminho(Mehadia, Dobreta, 75).
+caminho(Dobreta, Craiova, 120).
+caminho(Craiova, Rimnicu Vilcea, 145).
+caminho(Craiova, Pitesti, 138).
+caminho(Rimnicu Vilcea, Pitesti, 97).
+caminho(Pitesti, Bucharest, 101).
+caminho(Fagaras, Bucharest, 211).
+h(Arad, Bucharest, 366).
+h(Zerind, Bucharest, 374).
+h(Oradea, Bucharest, 380).
+h(Sibiu, Bucharest, 253).
+h(Timisoara, Bucharest, 329).
+h(Lugoj, Bucharest, 244).
+h(Mehadia, Bucharest, 241).
+h(Dobreta, Bucharest, 242).
+h(Craiova, Bucharest, 160).
+h(Rimnicu Vilcea, Bucharest, 193).
+h(Bucharest, Bucharest, 0).
+h(Fagaras, Bucharest, 178).
+h(Pitesti, Bucharest, 98).

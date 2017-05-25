@@ -26,6 +26,9 @@ class Vertex:
         self.visited = False
         self.cumulative_weight = 0
 
+    def getVisited(self):
+        return self.visited
+
     def setVisited(self, value):
         self.visited = value
 
